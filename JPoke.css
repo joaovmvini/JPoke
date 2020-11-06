@@ -1,0 +1,166 @@
+:root {
+    --dark-container-time: 6s; /* 6 */
+    --pokemon-animation-time: 7s; /* 7 */
+}
+
+.jpoke-root {
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.jpoke-root img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-size: cover;
+}
+
+.jpoke-pokemonContainer {
+    width: 140px;
+    height: 180px;
+    background: transparent;
+    position: absolute;
+    z-index: 10;
+}
+
+.jpoke-pokemonContainer.player {
+    bottom: 40px;
+}
+
+.jpoke-pokemonContainer.wild {
+    top: 20px;
+}
+
+.jpoke-pokemonContainer.left {
+    animation: left var(--pokemon-animation-time) forwards;
+}
+.jpoke-pokemonContainer.right {
+    animation: right var(--pokemon-animation-time) forwards;
+}
+
+.jpoke-platform {
+    width: 240px;
+    height: 80px;
+    position: relative;
+    background-size: cover;
+}
+
+.jpoke-platform.player {
+    top: 135px;
+    left: -40px;
+}
+.jpoke-platform.wild {
+    top: 135px;
+    left: -50px;
+}
+
+@keyframes left {
+    0% {
+        left: calc(100% + 20px);
+    }
+    100% {
+        left: 10%;
+    }
+}
+
+@keyframes right{
+    0% {
+        right: calc(100% + 20px);
+    }
+    100% {
+        right: 10%;
+    }
+
+}
+
+.jpoke-darkContainer{
+    z-index: 30;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #000;
+}
+
+.jpoke-darkContainer.top {
+    top: 0;
+    animation: dark-container-top var(--dark-container-time) forwards;
+}
+
+.jpoke-darkContainer.bottom {
+    top: 50%;
+    animation: dark-container-bottom var(--dark-container-time) forwards;
+}
+
+@keyframes dark-container-top {
+    0% {
+        height: 50%;
+    }
+    100% {
+        height: 0%;
+    }
+}
+
+@keyframes dark-container-bottom {
+    0% {
+        height: 100%;
+        top: 50%;
+    }
+    100% {
+        height: 0%;
+        top: 100%;
+    }
+}
+
+.jpoke-status {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    border: 3px solid black;
+    background: #FCFFD5;
+    display: block;
+    border-radius: 8px 8px 0px;
+    -webkit-box-shadow: 16px 18px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 16px 18px 9px 0px rgba(0,0,0,0.75);
+    box-shadow: 16px 18px 9px 0px rgba(0,0,0,0.75);
+}
+
+.jpoke-status.player {
+    right: 40px;
+    top: calc(100% - 160px);
+}
+
+.jpoke-status.wild {
+    left: 40px;
+    top: 20px;
+}
+
+.jpoke-nameLevel, .jpoke-hpContainer {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.jpoke-nameLevel {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.jpoke-hpContainer {
+    justify-content: flex-end;
+}
+
+.jpoke-hpContainer .jpoke-hp {
+    background: greenyellow;
+    width: 150px;
+    height: 40%;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 24px;
+}
